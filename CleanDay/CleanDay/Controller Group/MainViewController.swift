@@ -7,12 +7,23 @@
 
 import Cocoa
 
+import SystemKit
+
 class ViewController: NSViewController {
+    
+    // MARK: - Object Properties
+    private let viewModel = MainViewControllerModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        self.viewModel.setupLocationManager()
     }
 
     override var representedObject: Any? {

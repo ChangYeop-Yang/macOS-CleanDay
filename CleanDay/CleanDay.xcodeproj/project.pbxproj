@@ -13,6 +13,9 @@
 		151D1CBD29100EBA000CB8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBC29100EBA000CB8D7 /* Assets.xcassets */; };
 		151D1CC029100EBA000CB8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBE29100EBA000CB8D7 /* Main.storyboard */; };
 		151D1CCC29101314000CB8D7 /* MainViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CCB29101314000CB8D7 /* MainViewControllerModel.swift */; };
+		15C5009E2911235C009ED8A2 /* SystemKit in Frameworks */ = {isa = PBXBuildFile; productRef = 15C5009D2911235C009ED8A2 /* SystemKit */; };
+		15C500A0291123C5009ED8A2 /* Beltex in Frameworks */ = {isa = PBXBuildFile; productRef = 15C5009F291123C5009ED8A2 /* Beltex */; };
+		15C500A329112EE2009ED8A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		151D1CC129100EBA000CB8D7 /* CleanDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanDay.entitlements; sourceTree = "<group>"; };
 		151D1CCB29101314000CB8D7 /* MainViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerModel.swift; sourceTree = "<group>"; };
 		151D1CD129101860000CB8D7 /* CleanDay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleanDay-Bridging-Header.h"; sourceTree = "<group>"; };
+		15A8144E2911233300AB5B03 /* Universal-SystemKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Universal-SystemKit"; path = "../../Universal-SystemKit"; sourceTree = "<group>"; };
+		15C500A1291124C3009ED8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15C500A229112EE2009ED8A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C500A329112EE2009ED8A2 /* CoreLocation.framework in Frameworks */,
+				15C5009E2911235C009ED8A2 /* SystemKit in Frameworks */,
+				15C500A0291123C5009ED8A2 /* Beltex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				151D1CB429100EB8000CB8D7 /* CleanDay */,
 				151D1CB329100EB8000CB8D7 /* Products */,
+				15A81448291122C700AB5B03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,10 +67,9 @@
 		151D1CB429100EB8000CB8D7 /* CleanDay */ = {
 			isa = PBXGroup;
 			children = (
+				15C500A1291124C3009ED8A2 /* Info.plist */,
 				151D1CD129101860000CB8D7 /* CleanDay-Bridging-Header.h */,
 				151D1CB529100EB8000CB8D7 /* AppDelegate.swift */,
-				151D1CCD2910132A000CB8D7 /* Resources */,
-				151D1CCE29101332000CB8D7 /* Frameworks */,
 				151D1CC92910118E000CB8D7 /* Data Group */,
 				151D1CC72910116E000CB8D7 /* ViewModel Group */,
 				151D1CCA291012E9000CB8D7 /* Controller Group */,
@@ -96,25 +105,20 @@
 			path = "Controller Group";
 			sourceTree = "<group>";
 		};
-		151D1CCD2910132A000CB8D7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		151D1CCE29101332000CB8D7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		151D1CD02910138B000CB8D7 /* Storyboard Group */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = "Storyboard Group";
+			sourceTree = "<group>";
+		};
+		15A81448291122C700AB5B03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15C500A229112EE2009ED8A2 /* CoreLocation.framework */,
+				15A8144E2911233300AB5B03 /* Universal-SystemKit */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +137,10 @@
 			dependencies = (
 			);
 			name = CleanDay;
+			packageProductDependencies = (
+				15C5009D2911235C009ED8A2 /* SystemKit */,
+				15C5009F291123C5009ED8A2 /* Beltex */,
+			);
 			productName = CleanDay;
 			productReference = 151D1CB229100EB8000CB8D7 /* CleanDay.app */;
 			productType = "com.apple.product-type.application";
@@ -258,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -312,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -334,9 +342,13 @@
 				DEVELOPMENT_TEAM = G325PL7HW2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CleanDay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘도맑음";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "오늘도맑음";
+				INFOPLIST_KEY_NSLocationUsageDescription = "오늘도맑음";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "오늘도맑음";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
@@ -367,9 +379,13 @@
 				DEVELOPMENT_TEAM = G325PL7HW2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CleanDay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘도맑음";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "오늘도맑음";
+				INFOPLIST_KEY_NSLocationUsageDescription = "오늘도맑음";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "오늘도맑음";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
@@ -409,6 +425,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15C5009D2911235C009ED8A2 /* SystemKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SystemKit;
+		};
+		15C5009F291123C5009ED8A2 /* Beltex */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Beltex;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		151D1CB929100EB8000CB8D7 /* CleanDay.xcdatamodeld */ = {

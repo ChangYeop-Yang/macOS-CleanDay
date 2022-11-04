@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Universal-SystemKit. All rights reserved.
+ * Copyright (c) 2022 ChangYeop-Yang. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,44 +20,37 @@
  * THE SOFTWARE.
  */
 
+import Cocoa
+
 import SystemKit
 
-import Foundation
-import CoreLocation
-
-internal class MainViewControllerModel: NSObject {
+class ViewController: NSViewController {
     
     // MARK: - Object Properties
-    private var manager: SKCoreLocation?
-}
-
-// MARK: - Private Extension MainViewControllerModel
-private extension MainViewControllerModel {
+    public static var label: String = "com.ChangYeopYang.CleanDay.ViewController"
+    public static var identifier: String = "9BC867F3-FD37-42B2-AA96-D238FB14B527"
     
+    private var viewModel = ViewControllerModel()
+    internal var appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
     
-}
-
-// MARK: - Internal Extension MainViewControllerModel
-internal extension MainViewControllerModel {
-    
-    final func setupLocationManager() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // 사용자의 위치 정보를 가져오기 위하여 CoreLocation 권한 설정 작업을 수행합니다.
-        self.manager = SKCoreLocation(delegate: self)
-        manager?.requestAuthorization()
-        
-        print(manager?.recentlyLocation)
-    }
-}
-
-// MARK: - Extension CLLocationManagerDelegate
-extension MainViewControllerModel: CLLocationManagerDelegate {
-    
-    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        // Do any additional setup after loading the view.
+        print(AppDelegate().statusItem)
+        print((NSApplication.shared.delegate as? AppDelegate)?.statusItem)
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        self.viewModel.setupLocationManager()
+        
+    }
+
+    override var representedObject: Any? {
+        didSet {
+        // Update the view, if already loaded.
+        }
     }
 }

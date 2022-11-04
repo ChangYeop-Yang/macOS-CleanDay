@@ -8,27 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		151D1CB629100EB8000CB8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CB529100EB8000CB8D7 /* AppDelegate.swift */; };
-		151D1CB829100EB8000CB8D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CB729100EB8000CB8D7 /* MainViewController.swift */; };
+		151D1CB829100EB8000CB8D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CB729100EB8000CB8D7 /* ViewController.swift */; };
 		151D1CBB29100EB8000CB8D7 /* CleanDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CB929100EB8000CB8D7 /* CleanDay.xcdatamodeld */; };
 		151D1CBD29100EBA000CB8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBC29100EBA000CB8D7 /* Assets.xcassets */; };
 		151D1CC029100EBA000CB8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBE29100EBA000CB8D7 /* Main.storyboard */; };
-		151D1CCC29101314000CB8D7 /* MainViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CCB29101314000CB8D7 /* MainViewControllerModel.swift */; };
+		151D1CCC29101314000CB8D7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CCB29101314000CB8D7 /* ViewControllerModel.swift */; };
+		1540D3F8291514B4009D7EA6 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 1540D3F7291514B4009D7EA6 /* SwiftyBeaver */; };
+		1540D3FB2915639B009D7EA6 /* ProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D3FA2915639B009D7EA6 /* ProjectData.swift */; };
+		15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */; };
+		15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
 		15C5009E2911235C009ED8A2 /* SystemKit in Frameworks */ = {isa = PBXBuildFile; productRef = 15C5009D2911235C009ED8A2 /* SystemKit */; };
 		15C500A0291123C5009ED8A2 /* Beltex in Frameworks */ = {isa = PBXBuildFile; productRef = 15C5009F291123C5009ED8A2 /* Beltex */; };
-		15C500A329112EE2009ED8A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		151D1CB229100EB8000CB8D7 /* CleanDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151D1CB529100EB8000CB8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		151D1CB729100EB8000CB8D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		151D1CB729100EB8000CB8D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		151D1CBA29100EB8000CB8D7 /* CleanDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CleanDay.xcdatamodel; sourceTree = "<group>"; };
 		151D1CBC29100EBA000CB8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151D1CBF29100EBA000CB8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		151D1CC129100EBA000CB8D7 /* CleanDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanDay.entitlements; sourceTree = "<group>"; };
-		151D1CCB29101314000CB8D7 /* MainViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerModel.swift; sourceTree = "<group>"; };
+		151D1CCB29101314000CB8D7 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
 		151D1CD129101860000CB8D7 /* CleanDay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleanDay-Bridging-Header.h"; sourceTree = "<group>"; };
+		1540D3FA2915639B009D7EA6 /* ProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectData.swift; sourceTree = "<group>"; };
 		15A8144E2911233300AB5B03 /* Universal-SystemKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Universal-SystemKit"; path = "../../Universal-SystemKit"; sourceTree = "<group>"; };
+		15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Additions.swift"; sourceTree = "<group>"; };
 		15C500A1291124C3009ED8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		15C500A229112EE2009ED8A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -38,9 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C500A329112EE2009ED8A2 /* CoreLocation.framework in Frameworks */,
+				15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */,
 				15C5009E2911235C009ED8A2 /* SystemKit in Frameworks */,
 				15C500A0291123C5009ED8A2 /* Beltex in Frameworks */,
+				1540D3F8291514B4009D7EA6 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,10 +76,10 @@
 				15C500A1291124C3009ED8A2 /* Info.plist */,
 				151D1CD129101860000CB8D7 /* CleanDay-Bridging-Header.h */,
 				151D1CB529100EB8000CB8D7 /* AppDelegate.swift */,
-				151D1CC92910118E000CB8D7 /* Data Group */,
+				15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */,
+				1540D3F929156321009D7EA6 /* Data Group */,
 				151D1CC72910116E000CB8D7 /* ViewModel Group */,
 				151D1CCA291012E9000CB8D7 /* Controller Group */,
-				151D1CD02910138B000CB8D7 /* Storyboard Group */,
 				151D1CBC29100EBA000CB8D7 /* Assets.xcassets */,
 				151D1CBE29100EBA000CB8D7 /* Main.storyboard */,
 				151D1CC129100EBA000CB8D7 /* CleanDay.entitlements */,
@@ -85,31 +91,25 @@
 		151D1CC72910116E000CB8D7 /* ViewModel Group */ = {
 			isa = PBXGroup;
 			children = (
-				151D1CCB29101314000CB8D7 /* MainViewControllerModel.swift */,
+				151D1CCB29101314000CB8D7 /* ViewControllerModel.swift */,
 			);
 			path = "ViewModel Group";
-			sourceTree = "<group>";
-		};
-		151D1CC92910118E000CB8D7 /* Data Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Data Group";
 			sourceTree = "<group>";
 		};
 		151D1CCA291012E9000CB8D7 /* Controller Group */ = {
 			isa = PBXGroup;
 			children = (
-				151D1CB729100EB8000CB8D7 /* MainViewController.swift */,
+				151D1CB729100EB8000CB8D7 /* ViewController.swift */,
 			);
 			path = "Controller Group";
 			sourceTree = "<group>";
 		};
-		151D1CD02910138B000CB8D7 /* Storyboard Group */ = {
+		1540D3F929156321009D7EA6 /* Data Group */ = {
 			isa = PBXGroup;
 			children = (
+				1540D3FA2915639B009D7EA6 /* ProjectData.swift */,
 			);
-			path = "Storyboard Group";
+			path = "Data Group";
 			sourceTree = "<group>";
 		};
 		15A81448291122C700AB5B03 /* Frameworks */ = {
@@ -140,6 +140,7 @@
 			packageProductDependencies = (
 				15C5009D2911235C009ED8A2 /* SystemKit */,
 				15C5009F291123C5009ED8A2 /* Beltex */,
+				1540D3F7291514B4009D7EA6 /* SwiftyBeaver */,
 			);
 			productName = CleanDay;
 			productReference = 151D1CB229100EB8000CB8D7 /* CleanDay.app */;
@@ -169,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 151D1CA929100EB7000CB8D7;
+			packageReferences = (
+				1540D3F6291514B4009D7EA6 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+			);
 			productRefGroup = 151D1CB329100EB8000CB8D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,10 +199,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				151D1CB829100EB8000CB8D7 /* MainViewController.swift in Sources */,
-				151D1CCC29101314000CB8D7 /* MainViewControllerModel.swift in Sources */,
+				151D1CB829100EB8000CB8D7 /* ViewController.swift in Sources */,
+				151D1CCC29101314000CB8D7 /* ViewControllerModel.swift in Sources */,
 				151D1CBB29100EB8000CB8D7 /* CleanDay.xcdatamodeld in Sources */,
+				15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */,
 				151D1CB629100EB8000CB8D7 /* AppDelegate.swift in Sources */,
+				1540D3FB2915639B009D7EA6 /* ProjectData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +342,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CleanDay/CleanDay.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -345,6 +352,7 @@
 				INFOPLIST_FILE = CleanDay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘도맑음";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "오늘도맑음";
 				INFOPLIST_KEY_NSLocationUsageDescription = "오늘도맑음";
@@ -373,6 +381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CleanDay/CleanDay.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -382,6 +391,7 @@
 				INFOPLIST_FILE = CleanDay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘도맑음";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "오늘도맑음";
 				INFOPLIST_KEY_NSLocationUsageDescription = "오늘도맑음";
@@ -426,7 +436,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		1540D3F6291514B4009D7EA6 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		1540D3F7291514B4009D7EA6 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1540D3F6291514B4009D7EA6 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
 		15C5009D2911235C009ED8A2 /* SystemKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SystemKit;

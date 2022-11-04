@@ -20,7 +20,24 @@
  * THE SOFTWARE.
  */
 
-#ifndef CleanDay_Bridging_Header
-#define CleanDay_Bridging_Header
+#if os(macOS)
+import Foundation
 
-#endif /* Header_h */
+// MARK: - Enum
+public enum StoryboardInfo: String {
+    
+    case main = "Main"
+    
+    // MARK: Enum Properties
+    public var name: String { return self.rawValue }
+}
+
+public enum ViewControllerInfo: String {
+    
+    case viewController = "ViewController"
+    
+    // MARK: Enum Proerpties
+    public var name: String { return self.rawValue }
+}
+
+#endif

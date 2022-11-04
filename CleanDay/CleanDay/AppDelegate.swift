@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Universal-SystemKit. All rights reserved.
+ * Copyright (c) 2022 ChangYeop-Yang. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,16 +20,35 @@
  * THE SOFTWARE.
  */
 
+#if os(macOS)
 import Cocoa
 
-@main
-class AppDelegate: NSObject, NSApplicationDelegate {
+import SystemKit
+import SwiftyBeaver
 
+// MARK: Global Properties
+public let log = SwiftyBeaver.self
+
+@main
+class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
+
+    // MARK: - Object Properties
+    internal static var label: String = "com.ChangYeopYang.CleanDay.AppDelegate"
+    internal static var identifier: String = "2E0A51A2-462D-49F6-866D-EFD576BC76AE"
+    
+    internal let popOver = NSPopover()
+    internal let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    internal var implementQueue = DispatchQueue(label: AppDelegate.label, qos: .background, attributes: .concurrent)
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
         // Insert code here to initialize your application
+        setupStatusItem()
+        setupBeaver()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        
         // Insert code here to tear down your application
     }
 
@@ -135,4 +154,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 }
-
+#endif

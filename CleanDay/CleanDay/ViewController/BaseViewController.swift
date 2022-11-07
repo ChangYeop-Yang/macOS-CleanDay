@@ -20,45 +20,13 @@
  * THE SOFTWARE.
  */
 
-import SystemKit
-
+#if os(macOS)
+import Cocoa
 import Foundation
-import CoreLocation
 
-internal class ViewControllerModel: NSObject, SKClass {
+internal class BaseViewController: NSViewController {
     
     // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
-    public static var identifier: String = "EE38D2FA-39D8-47CB-AD71-E19666B054A3"
-    
-    private var manager: SKCoreLocation? = nil
+    internal var appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
 }
-
-// MARK: - Private Extension ViewControllerModel
-private extension ViewControllerModel {
-    
-    
-}
-
-// MARK: - Internal Extension ViewControllerModel
-internal extension ViewControllerModel {
-    
-    final func setupLocationManager() {
-        
-        // 사용자의 위치 정보를 가져오기 위하여 CoreLocation 권한 설정 작업을 수행합니다.
-        self.manager = SKCoreLocation(delegate: self)
-        manager?.requestAuthorization()
-    }
-}
-
-// MARK: - Extension CLLocationManagerDelegate
-extension ViewControllerModel: CLLocationManagerDelegate {
-    
-    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-}
+#endif

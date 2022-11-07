@@ -25,8 +25,9 @@ import Cocoa
 
 import SystemKit
 import SwiftyBeaver
+import CoreLocation
 
-// MARK: Global Properties
+// MARK: - Global Properties
 public let log = SwiftyBeaver.self
 
 @main
@@ -37,14 +38,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
     internal static var identifier: String = "2E0A51A2-462D-49F6-866D-EFD576BC76AE"
     
     internal let popOver = NSPopover()
+    internal var locationManager: Optional<SKCoreLocation> = nil
     internal let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    internal var implementQueue = DispatchQueue(label: AppDelegate.label, qos: .background, attributes: .concurrent)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         // Insert code here to initialize your application
-        setupStatusItem()
         setupBeaver()
+        setupStatusItem()
+        setupLocationManager()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

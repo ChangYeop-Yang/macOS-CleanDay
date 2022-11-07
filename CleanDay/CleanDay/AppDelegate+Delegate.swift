@@ -20,37 +20,21 @@
  * THE SOFTWARE.
  */
 
-import Cocoa
+#if os(macOS)
+import Foundation
+import CoreLocation
 
-import SystemKit
-
-class ViewController: NSViewController {
+// MARK: - Extension CLLocationManagerDelegate
+extension AppDelegate: CLLocationManagerDelegate {
     
-    // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewController"
-    public static var identifier: String = "9BC867F3-FD37-42B2-AA96-D238FB14B527"
-    
-    private var viewModel = ViewControllerModel()
-    internal var appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        // Do any additional setup after loading the view.
-        print(AppDelegate().statusItem)
-        print((NSApplication.shared.delegate as? AppDelegate)?.statusItem)
+        print(locations)
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
-        self.viewModel.setupLocationManager()
-        
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+        log.error("[AppDelegate] Error, \(error.localizedDescription)")
     }
 }
+#endif

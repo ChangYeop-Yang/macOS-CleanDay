@@ -30,18 +30,6 @@ import SwiftyBeaver
 // MARK: - Private Extension AppDelegate
 private extension AppDelegate {
     
-    static func loadViewController() -> ViewController {
-        
-        let storyboard = NSStoryboard(name: StoryboardInfo.main.name, bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier(stringLiteral: ViewControllerInfo.viewController.name)
-        
-        guard let target = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
-            fatalError("[AppDelegate] Error, Could't Load NSViewController")
-        }
-        
-        return target
-    }
-    
     @objc final func togglePopover(_ sender: NSStatusBarButton) {
        
         switch self.popOver.isShown {
@@ -56,6 +44,24 @@ private extension AppDelegate {
             self.popOver.performClose(sender)
         }
     }
+    
+    @discardableResult
+    final func checkLocationPermission() -> Bool {
+        
+        guard let result = self.locationManager?.getAuthorizationStatus() else {
+            log.error("[AppDelegate] Error, Could't Get CoreLocation CLAuthorizationStatus")
+            return false
+        }
+        
+        // 위치 권한 여부를 확인합니다.
+        if result.isPermission { return result.isPermission }
+        
+        // 현재 위치 권한이 존재하지 않는 경우에는 환경설정을 표시합니다.
+        self.locationManager?.openPrivacyLocationServicePref()
+        log.info("[AppDelegate] Action, Open Privacy Location Service Preference: \(result.status)")
+        
+        return false
+    }
 }
 
 // MARK: - Internal Extension AppDelegate
@@ -63,11 +69,14 @@ internal extension AppDelegate {
     
     final func setupBeaver(pid: pid_t = getpid()) {
         
+        log.info("[AppDelegate] Initalize, SwiftyBeaver")
+        
         let console = ConsoleDestination()
         let file = FileDestination()
         
         console.format = "$DHH:mm:ss$d $L: $M"
         
+        // Debug 속성으로 프로그램을 실행 시 로그 표시를 Debug 부터 표시합니다.
         let result = SKSystem.shared.getBeingDebugged(pid: pid)
         console.minLevel = result ? SwiftyBeaver.Level.debug : SwiftyBeaver.Level.info
         
@@ -82,29 +91,31 @@ internal extension AppDelegate {
     }
     
     final func setupStatusItem() {
-                
-        let statusButton = self.statusItem.button
         
-        statusButton?.image = NSImage(systemSymbolName: "timelapse", accessibilityDescription: nil)
-        statusButton?.image?.isTemplate = true
-        statusButton?.imageScaling = .scaleProportionallyUpOrDown
+        log.info("[AppDelegate] Initalize, NSStatusBarButton")
         
-        statusButton?.action = #selector(togglePopover)
-        statusButton?.identifier = NSUserInterfaceItemIdentifier(AppDelegate.identifier)
+        // The button displayed in the status bar.
+        self.statusItem.button?.image = NSImage(systemSymbolName: "timelapse", accessibilityDescription: nil)
+        self.statusItem.button?.action = #selector(togglePopover)
+        self.statusItem.button?.identifier = .init(rawValue: AppDelegate.identifier)
         
-        self.popOver.contentViewController = AppDelegate.loadViewController()
+        self.popOver.contentViewController = SKSystem.shared.loadViewController(type: ViewController.self,
+                                                                                storyboardName: StoryboardInfo.main.name,
+                                                                                controllerName: ViewControllerInfo.viewController.name)
     }
     
-    final func changeStatusItemSystemImage(systemSymbolName: String) {
+    final func setupLocationManager() {
         
-        DispatchQueue.main.async { [unowned self] in
-            
-            log.info("[AppDelegate] Action, Change NSStatusBarButton Image")
-            
-            let statusButton = self.statusItem.button
-            statusButton?.image = NSImage(systemSymbolName: systemSymbolName, accessibilityDescription: nil)
-            statusButton?.image?.isTemplate = true
-        }
+        log.info("[AppDelegate] Initalize, CLLocationManager")
+        
+        // 사용자의 위치 정보를 가져오기 위하여 CoreLocation 권한 설정 작업을 수행합니다.
+        self.locationManager = SKCoreLocation(delegate: self)
+        
+        // 현재 위치 권한 상태를 확인하여 권한이 없는 경우에는 사용자에게 환경설정 창을 보여줍니다.
+        checkLocationPermission()
+        
+        // 위치 정보를 얻어오기 위해서 위치 권한을 요청합니다.
+        self.locationManager?.requestAuthorization()
     }
 }
 #endif

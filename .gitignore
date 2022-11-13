@@ -2,10 +2,13 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-*.plist
 .DS_Store
-.gitignore
+
+*.plist
 *.beaver
+
+*.entitlements
+*.xcdatamodeld
 
 ## User settings
 xcuserdata/

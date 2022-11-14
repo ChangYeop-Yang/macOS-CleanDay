@@ -64,25 +64,29 @@ private extension Parser {
 public extension Parser {
     
     final func requestJSON<T: Decodable>(url: String, type: T.Type,
-                                         method: HTTPMethod, parameters: Optional<Parameters> = nil) async throws -> Optional<T> {
+                                         method: HTTPMethod,
+                                         encoding: ParameterEncoding = URLEncoding.default,
+                                         headers: Optional<HTTPHeaders> = nil,
+                                         parameters: Optional<Parameters> = nil) async throws -> Optional<T> {
+        
+        log.info("[Parser] Action, URL Session Request JSON: \(url)")
         
         guard let result = createEncodeURL(url: url) else { return nil }
         
-        return try await self.session.request(result, method: method, parameters: parameters,
-                                              encoding: URLEncoding.default).serializingDecodable().value
+        return try await self.session.request(result, method: method,
+                                              parameters: parameters, encoding: encoding,
+                                              headers: headers).serializingDecodable().value
     }
     
     final func requestString(url: String,
                              method: HTTPMethod, parameters: Optional<Parameters> = nil) async throws -> Optional<String> {
         
+        log.info("[Parser] Action, URL Session Request String: \(url)")
+        
         guard let result = createEncodeURL(url: url) else { return nil }
         
         return try await self.session.request(result, method: method, parameters: parameters,
                                               encoding: URLEncoding.default).serializingString().value
-    }
-    
-    final func requestData() {
-        
     }
 }
 

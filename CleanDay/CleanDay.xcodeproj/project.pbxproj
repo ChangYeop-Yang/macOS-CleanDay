@@ -18,11 +18,14 @@
 		152CF5F12918E0A400517C02 /* PrivatePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5F02918E0A400517C02 /* PrivatePackage */; };
 		152CF5F92919066000517C02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5F82919066000517C02 /* BaseViewController.swift */; };
 		152CF5FB2919072000517C02 /* DustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FA2919072000517C02 /* DustModel.swift */; };
+		152CF5FE29194DDA00517C02 /* DustStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FD29194DDA00517C02 /* DustStationModel.swift */; };
 		1540D3FB2915639B009D7EA6 /* ProjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D3FA2915639B009D7EA6 /* ProjectData.swift */; };
 		1540D3FD29156A97009D7EA6 /* AppDelegate+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D3FC29156A97009D7EA6 /* AppDelegate+Delegate.swift */; };
 		15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */; };
 		15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
 		15B35CAB2917ABCF0015E1A6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B35CAA2917ABCF0015E1A6 /* Parser.swift */; };
+		15C5F1C1291A8864000C4B6C /* Configure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15C5F1C0291A8864000C4B6C /* Configure.plist */; };
+		15C5F1C5291A9052000C4B6C /* GeographicTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5F1C3291A9052000C4B6C /* GeographicTransform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +43,17 @@
 		152CF5EF2918E08300517C02 /* Universal-PrivateLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Universal-PrivateLibrary"; path = "../../Universal-PrivateLibrary"; sourceTree = "<group>"; };
 		152CF5F82919066000517C02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		152CF5FA2919072000517C02 /* DustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustModel.swift; sourceTree = "<group>"; };
+		152CF5FD29194DDA00517C02 /* DustStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStationModel.swift; sourceTree = "<group>"; };
 		1540D3FA2915639B009D7EA6 /* ProjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectData.swift; sourceTree = "<group>"; };
 		1540D3FC29156A97009D7EA6 /* AppDelegate+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Delegate.swift"; sourceTree = "<group>"; };
 		15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Additions.swift"; sourceTree = "<group>"; };
+		15B2CFC6291A6706009A65A4 /* [에어코리아] 측정소정보 조회 서비스 기술문서.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "[에어코리아] 측정소정보 조회 서비스 기술문서.docx"; sourceTree = "<group>"; };
+		15B2CFC7291A6706009A65A4 /* [에어코리아] 대기오염정보 조회 서비스 기술문서.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "[에어코리아] 대기오염정보 조회 서비스 기술문서.docx"; sourceTree = "<group>"; };
 		15B35CAA2917ABCF0015E1A6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		15C500A1291124C3009ED8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		15C500A229112EE2009ED8A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		15C5F1C0291A8864000C4B6C /* Configure.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configure.plist; sourceTree = "<group>"; };
+		15C5F1C3291A9052000C4B6C /* GeographicTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeographicTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 				1540D3F929156321009D7EA6 /* Model */,
 				151D1CC72910116E000CB8D7 /* ViewModel */,
 				151D1CCA291012E9000CB8D7 /* ViewController */,
+				152CF5FC29194D2D00517C02 /* Resources */,
 				151D1CBC29100EBA000CB8D7 /* Assets.xcassets */,
 				151D1CBE29100EBA000CB8D7 /* Main.storyboard */,
 				151D1CC129100EBA000CB8D7 /* CleanDay.entitlements */,
@@ -117,11 +126,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		152CF5FC29194D2D00517C02 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15C5F1C0291A8864000C4B6C /* Configure.plist */,
+				15B2CFC7291A6706009A65A4 /* [에어코리아] 대기오염정보 조회 서비스 기술문서.docx */,
+				15B2CFC6291A6706009A65A4 /* [에어코리아] 측정소정보 조회 서비스 기술문서.docx */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1540D3F929156321009D7EA6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1540D3FA2915639B009D7EA6 /* ProjectData.swift */,
 				152CF5FA2919072000517C02 /* DustModel.swift */,
+				152CF5FD29194DDA00517C02 /* DustStationModel.swift */,
+				15C5F1C3291A9052000C4B6C /* GeographicTransform.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C5F1C1291A8864000C4B6C /* Configure.plist in Resources */,
 				151D1CBD29100EBA000CB8D7 /* Assets.xcassets in Resources */,
 				151D1CC029100EBA000CB8D7 /* Main.storyboard in Resources */,
 			);
@@ -226,11 +248,13 @@
 				151D1CB829100EB8000CB8D7 /* ViewController.swift in Sources */,
 				151D1CCC29101314000CB8D7 /* ViewControllerModel.swift in Sources */,
 				151D1CBB29100EB8000CB8D7 /* CleanDay.xcdatamodeld in Sources */,
+				15C5F1C5291A9052000C4B6C /* GeographicTransform.swift in Sources */,
 				1540D3FD29156A97009D7EA6 /* AppDelegate+Delegate.swift in Sources */,
 				152CF5FB2919072000517C02 /* DustModel.swift in Sources */,
 				152CF5F92919066000517C02 /* BaseViewController.swift in Sources */,
 				15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */,
 				151D1CB629100EB8000CB8D7 /* AppDelegate.swift in Sources */,
+				152CF5FE29194DDA00517C02 /* DustStationModel.swift in Sources */,
 				1540D3FB2915639B009D7EA6 /* ProjectData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

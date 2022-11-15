@@ -28,7 +28,7 @@ import SystemKit
 import Alamofire
 
 // https://developers.kakao.com/docs/latest/ko/local/dev-guide
-public class GeographicTransform: SKRestAPI {
+public class GeographicTransform: SKRequest {
     
     // MARK: - Object Properties
     public static let label = "com.ChangYeopYang.CleanDay.GeographicTransform"

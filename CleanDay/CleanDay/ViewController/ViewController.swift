@@ -22,7 +22,9 @@
 
 #if os(macOS)
 import Cocoa
+import CoreLocation
 
+import Alamofire
 import SystemKit
 
 class ViewController: BaseViewController, SKClass {
@@ -38,15 +40,27 @@ class ViewController: BaseViewController, SKClass {
         super.viewDidLoad()
         
 //        // Do any additional setup after loading the view.
+        
         Task {
             do {
-                let result = try await Parser.shared.requestJSON(url: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?serviceKey=kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==&returnType=json&numOfRows=100&pageNo=1&stationName=호매실&dataTerm=DAILY&ver=1.0", type: DustResponse.self,
-                                                             method: .get)
+//                let dd = ConfigureResource.init().configure["SerialKeys"] as? Dictionary<String, String>
+//                print(dd)
+//                let cor = CLLocationCoordinate2D(latitude: 37.5666805, longitude: 126.9784147)
+//                let result = try await Parser.shared.requestJSON(url: GeographicTransform.targetPath,
+//                                                                 type: GeographicTransform.Geographic.self,
+//                                                                 method: .get,
+//                                                                 headers: GeographicTransform.createHeader(keyValue: "21363fa7b4c6d1d74548f36baf34f50d"),
+//                                                                 parameters: GeographicTransform.createParameters(coordinate: cor, outputType: .TM))
+//                print(result)
+                
+                let result = try await Parser.shared.requestJSON(url: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty", type: DustResponse.self, method: .get, parameters: DustResponse.createParameters(stationName: "종로구"))
                 print(result)
             } catch let error as NSError {
+                print(error.localizedDescription)
                 print(error.description)
             }
         }
+        
     }
     
     override func viewDidAppear() {

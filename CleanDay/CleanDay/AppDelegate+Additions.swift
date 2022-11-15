@@ -95,13 +95,13 @@ internal extension AppDelegate {
         log.info("[AppDelegate] Initalize, NSStatusBarButton")
         
         // The button displayed in the status bar.
-        self.statusItem.button?.image = NSImage(systemSymbolName: "timelapse", accessibilityDescription: nil)
+        self.statusItem.button?.image = NSImage(named: "explore-symbol")
         self.statusItem.button?.action = #selector(togglePopover)
         self.statusItem.button?.identifier = .init(rawValue: AppDelegate.identifier)
         
-        self.popOver.contentViewController = SKSystem.shared.loadViewController(type: ViewController.self,
-                                                                                storyboardName: StoryboardInfo.main.name,
-                                                                                controllerName: ViewControllerInfo.viewController.name)
+//        self.popOver.contentViewController = SKSystem.shared.loadViewController(type: ViewController.self,
+//                                                                                storyboardName: StoryboardInfo.main.name,
+//                                                                                controllerName: ViewControllerInfo.viewController.name)
     }
     
     final func setupLocationManager() {

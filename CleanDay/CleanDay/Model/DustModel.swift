@@ -23,93 +23,112 @@
 #if os(macOS)
 import Foundation
 
-public struct DustResponse: Decodable {
+import SystemKit
+import Alamofire
+import PrivatePackage
+
+public class DustModel: SKRequest {
     
-    public let response: DustField
+    // MARK: - Object Properties
+    public static let label = "com.ChangYeopYang.CleanDay.MeasurementModel"
+    public static let identifier = "1FCC4150-571F-47C8-8E97-245C1A645757"
+    public static let targetPath = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
     
-    public struct DustField: Decodable {
-        public let body: DustBody
-        public let header: DustHeader
+    // MARK: - Struct
+    public struct Response: Decodable {
+        
+        public let response: MeasurementModel.Field<DustModel.Item>
+    }
+    
+    public struct Item: Decodable {
+        
+        /// 아황산가스 지수
+        public let so2Grade: String
+        
+        /// 아황산가스 농도 (단위 : ppm)
+        public let so2Value: String
+        
+        /// 아황산가스 플래그 - 상태정보 (점검및교정,장비점검,자료이상,통신장애)
+        public let so2Flag: String?
+        
+        /// 일산화탄소 플래그 - 상태정보 (점검및교정,장비점검,자료이상,통신장애)
+        public let coFlag: String?
+        
+        /// 일산화탄소 농도 (단위 : ppm)
+        public let coValue: String
+        
+        /// 일산화탄소 지수
+        public let coGrade: String
+        
+        /// 통합대기환경수치
+        public let khaiValue: String
+        
+        /// 통합대기환경지수
+        public let khaiGrade: String
+        
+        /// 미세먼지(PM2.5) 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
+        public let pm25Flag: String?
+        
+        /// 미세먼지(PM2.5) 농도 (단위 : ㎍/㎥)
+        public let pm25Value: String
+        
+        /// 미세먼지(PM2.5) 등급
+        public let pm25Grade: String
+        
+        /// 미세먼지(PM10) 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
+        public let pm10Flag: String?
+        
+        /// 미세먼지(PM10) 농도 (단위 : ㎍/㎥)
+        public let pm10Value: String
+        
+        /// 미세먼지(PM10) 등급
+        public let pm10Grade: String
+        
+        /// 오존 지수
+        public let o3Grade: String
+        
+        /// 오존 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
+        public let o3Flag: String?
+        
+        /// 오존 농도 (단위 : ppm)
+        public let o3Value: String
+        
+        /// 이산화질소 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
+        public let no2Flag: String?
+        
+        /// 이산화질소 농도 (단위 : ppm)
+        public let no2Value: String
+        
+        /// 이산화질소 지수
+        public let no2Grade: String
+        
+        /// 오염도측정 연-월-일 시간: 분
+        public let dataTime: String
+    }
+    
+    // MARK: - Enum
+    public enum DataTerm: String {
+        case daily = "DAILY"
+        case month = "MONTH"
+        case threeMonth = "3MONTH"
     }
 }
 
-public struct DustBody: Decodable {
+// MARK: - Public Extension DustModel
+public extension DustModel {
     
-    public let totalCount: Int
-    public let pageNo: Int
-    public let numOfRows: Int
-    public let items: [DustItem]
-}
+    static func createParameters(stationName: String,
+                                 returnType: MeasurementModel.ReturnType = .json,
+                                 dataTerm: DustModel.DataTerm = .daily) -> Parameters {
 
-public struct DustHeader: Decodable {
-    
-    public let resultMsg: String
-    public let resultCode: String
-}
-
-public struct DustItem: Decodable {
-    
-    /// 아황산가스 지수
-    public let so2Grade: String
-    
-    /// 아황산가스 농도 (단위 : ppm)
-    public let so2Value: String
-    
-    /// 아황산가스 플래그 - 상태정보 (점검및교정,장비점검,자료이상,통신장애)
-    public let so2Flag: String?
-    
-    /// 일산화탄소 플래그 - 상태정보 (점검및교정,장비점검,자료이상,통신장애)
-    public let coFlag: String?
-    
-    /// 일산화탄소 농도 (단위 : ppm)
-    public let coValue: String
-    
-    /// 일산화탄소 지수
-    public let coGrade: String
-    
-    /// 통합대기환경수치
-    public let khaiValue: String
-    
-    /// 통합대기환경지수
-    public let khaiGrade: String
-    
-    /// 미세먼지(PM2.5) 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
-    public let pm25Flag: String?
-    
-    /// 미세먼지(PM2.5) 농도 (단위 : ㎍/㎥)
-    public let pm25Value: String
-    
-    /// 미세먼지(PM2.5) 등급
-    public let pm25Grade: String
-    
-    /// 미세먼지(PM10) 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
-    public let pm10Flag: String?
-    
-    /// 미세먼지(PM10) 농도 (단위 : ㎍/㎥)
-    public let pm10Value: String
-    
-    /// 미세먼지(PM10) 등급
-    public let pm10Grade: String
-    
-    /// 오존 지수
-    public let o3Grade: String
-    
-    /// 오존 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
-    public let o3Flag: String?
-    
-    /// 오존 농도 (단위 : ppm)
-    public let o3Value: String
-    
-    /// 이산화질소 플래그 - 상태정보(점검및교정,장비점검,자료이상,통신장애)
-    public let no2Flag: String?
-    
-    /// 이산화질소 농도 (단위 : ppm)
-    public let no2Value: String
-    
-    /// 이산화질소 지수
-    public let no2Grade: String
-    
-    /// 오염도측정 연-월-일 시간: 분
-    public let dataTime: String
+        let parameters: Parameters = ["serviceKey": PrivatePackage.DUST_AIR_SERVICE_KEY,
+                                      "returnType": returnType.rawValue,
+                                      "numOfRows": 100,
+                                      "pageNo": 1,
+                                      "stationName": stationName,
+                                      "dataTerm": dataTerm.rawValue,
+                                      "ver": 1.2]
+        return parameters
+    }
 }
 #endif

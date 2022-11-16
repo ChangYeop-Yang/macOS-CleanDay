@@ -80,6 +80,17 @@ private extension AppDelegate {
 // MARK: - Internal Extension AppDelegate
 internal extension AppDelegate {
     
+    final func getConfiguration(forResource: String = "Configure", ofType: String = "plist") -> NSDictionary {
+        
+        guard let fileURLWithPath = Bundle.main.path(forResource: forResource, ofType: ofType) else {
+            log.error("[AppDelegate] Error, Could't load Bunlde Resource Path")
+            return NSDictionary.init()
+        }
+        
+        let contentsOf = URL(fileURLWithPath: fileURLWithPath)
+        return NSDictionary(contentsOf: contentsOf) ?? NSDictionary.init()
+    }
+    
     final func setupBeaver() {
         
         #if DEBUG
@@ -102,7 +113,12 @@ internal extension AppDelegate {
     
     final func setupStatusItem() {
         
-        log.info("[AppDelegate] Initalize, NSStatusBarButton")
+        #if DEBUG
+            NSLog("[%@][%@] Initazlie, NSStatusBarButton", AppDelegate.label, AppDelegate.identifier)
+        #endif
+        
+        // A status item length that dynamically adjusts to the width of its contents.
+        self.statusItem.length = NSStatusItem.variableLength
         
         // The button displayed in the status bar.
         self.statusItem.button?.image = NSImage(named: "explore-symbol")
@@ -117,7 +133,9 @@ internal extension AppDelegate {
     
     final func setupLocationManager() {
         
-        log.info("[AppDelegate] Initalize, CLLocationManager")
+        #if DEBUG
+            NSLog("[%@][%@] Initazlie, CLLocationManager", AppDelegate.label, AppDelegate.identifier)
+        #endif
         
         // 사용자의 위치 정보를 가져오기 위하여 CoreLocation 권한 설정 작업을 수행합니다.
         self.locationManager = SKCoreLocation(delegate: self)

@@ -23,6 +23,7 @@
 #if os(macOS)
 import Cocoa
 import CoreLocation
+import WeatherKit
 
 import Alamofire
 import SystemKit
@@ -42,6 +43,7 @@ class ViewController: BaseViewController, SKClass {
 //        // Do any additional setup after loading the view.
         
         Task {
+            
             do {
 //                let dd = ConfigureResource.init().configure["SerialKeys"] as? Dictionary<String, String>
 //                print(dd)
@@ -53,7 +55,10 @@ class ViewController: BaseViewController, SKClass {
 //                                                                 parameters: GeographicTransform.createParameters(coordinate: cor, outputType: .TM))
 //                print(result)
                 
-                let result = try await Parser.shared.requestJSON(url: "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty", type: DustResponse.self, method: .get, parameters: DustResponse.createParameters(stationName: "종로구"))
+                let result = try await Parser.shared.requestJSON(url: DustStationModel.targetPath,
+                                                                 type: DustStationModel.Response.self,
+                                                                 method: .get,
+                                                                 parameters: DustStationModel.createParameters(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", tmX: 244148.546388, tmY: 412423.75772))
                 print(result)
             } catch let error as NSError {
                 print(error.localizedDescription)

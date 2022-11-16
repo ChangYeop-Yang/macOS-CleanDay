@@ -40,20 +40,10 @@ public enum ViewControllerInfo: String {
     public var name: String { return self.rawValue }
 }
 
-// MARK: - Struct
-public struct ConfigureResource: Codable {
+public enum ServiceSerialKey: String {
     
-    public let ofType: String = "plist"
-    public let forResource: String = "Configure"
-    
-    public var configure: NSDictionary {
-        
-        guard let fileURLWithPath = Bundle.main.path(forResource: self.forResource, ofType: self.ofType) else {
-            return NSDictionary.init()
-        }
-        
-        let contentsOf = URL(fileURLWithPath: fileURLWithPath)
-        return NSDictionary(contentsOf: contentsOf) ?? NSDictionary.init()
-    }
+    case kakao = "KakaoServiceKey"
+    case generic = "GenericServiceKey"
+    case SwiftyBeadver = "SwiftyBeadverKey"
 }
 #endif

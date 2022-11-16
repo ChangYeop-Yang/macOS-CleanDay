@@ -52,4 +52,17 @@ public class DustStationModel: SKRequest {
         public let stationName: String
     }
 }
+
+// MARK: - Public Extension DustStationModel
+public extension DustStationModel {
+    
+    static func createParameters(serviceKey: String, tmX: Double, tmY: Double,
+                                 returnType: MeasurementModel.ReturnType = .json) -> Parameters {
+        
+        let parameters: Parameters = ["serviceKey": serviceKey, "returnType": returnType.rawValue,
+                                      "tmX": tmX, "tmY": tmY, "ver": "1.0"]
+        
+        return parameters
+    }
+}
 #endif

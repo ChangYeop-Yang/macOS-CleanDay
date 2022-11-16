@@ -25,7 +25,6 @@ import Foundation
 
 import SystemKit
 import Alamofire
-import PrivatePackage
 
 public class DustModel: SKRequest {
     
@@ -117,17 +116,17 @@ public class DustModel: SKRequest {
 // MARK: - Public Extension DustModel
 public extension DustModel {
     
-    static func createParameters(stationName: String,
+    static func createParameters(serviceKey: String, stationName: String,
                                  returnType: MeasurementModel.ReturnType = .json,
                                  dataTerm: DustModel.DataTerm = .daily) -> Parameters {
 
-        let parameters: Parameters = ["serviceKey": PrivatePackage.DUST_AIR_SERVICE_KEY,
+        let parameters: Parameters = ["serviceKey": serviceKey,
                                       "returnType": returnType.rawValue,
                                       "numOfRows": 100,
                                       "pageNo": 1,
                                       "stationName": stationName,
                                       "dataTerm": dataTerm.rawValue,
-                                      "ver": 1.2]
+                                      "ver": "1.2"]
         return parameters
     }
 }

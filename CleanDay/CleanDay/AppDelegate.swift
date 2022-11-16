@@ -34,9 +34,10 @@ public let log = SwiftyBeaver.self
 class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
 
     // MARK: - Object Properties
-    internal static var label: String = "com.ChangYeopYang.CleanDay.AppDelegate"
-    internal static var identifier: String = "2E0A51A2-462D-49F6-866D-EFD576BC76AE"
+    internal static let label = "com.ChangYeopYang.CleanDay.AppDelegate"
+    internal static let identifier = "2E0A51A2-462D-49F6-866D-EFD576BC76AE"
     
+    internal let pid = pid_t()
     internal let popOver = NSPopover()
     internal var locationManager: Optional<SKCoreLocation> = nil
     internal let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)

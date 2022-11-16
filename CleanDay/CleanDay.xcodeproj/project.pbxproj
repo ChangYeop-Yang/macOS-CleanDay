@@ -15,7 +15,6 @@
 		151D1CCC29101314000CB8D7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CCB29101314000CB8D7 /* ViewControllerModel.swift */; };
 		152CF5EC2918E05100517C02 /* Beltex in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5EB2918E05100517C02 /* Beltex */; };
 		152CF5EE2918E05100517C02 /* SystemKit in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5ED2918E05100517C02 /* SystemKit */; };
-		152CF5F12918E0A400517C02 /* PrivatePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5F02918E0A400517C02 /* PrivatePackage */; };
 		152CF5F92919066000517C02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5F82919066000517C02 /* BaseViewController.swift */; };
 		152CF5FB2919072000517C02 /* DustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FA2919072000517C02 /* DustModel.swift */; };
 		152CF5FE29194DDA00517C02 /* DustStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FD29194DDA00517C02 /* DustStationModel.swift */; };
@@ -24,6 +23,8 @@
 		159FAD7A2923CD110059B6FF /* MeasurementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAD792923CD110059B6FF /* MeasurementModel.swift */; };
 		15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */; };
 		15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
+		15B218592924EEDC0024A254 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 15B218582924EEDC0024A254 /* SwiftyBeaver */; };
+		15B2185C2924EF2B0024A254 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 15B2185B2924EF2B0024A254 /* Alamofire */; };
 		15B35CAB2917ABCF0015E1A6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B35CAA2917ABCF0015E1A6 /* Parser.swift */; };
 		15C5F1C1291A8864000C4B6C /* Configure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15C5F1C0291A8864000C4B6C /* Configure.plist */; };
 		15C5F1C5291A9052000C4B6C /* GeographicTransformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5F1C3291A9052000C4B6C /* GeographicTransformModel.swift */; };
@@ -41,7 +42,6 @@
 		151D1CD129101860000CB8D7 /* CleanDay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleanDay-Bridging-Header.h"; sourceTree = "<group>"; };
 		152CF5E32918DF1C00517C02 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		152CF5EA2918E01000517C02 /* Universal-SystemKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Universal-SystemKit"; path = "../../Universal-SystemKit"; sourceTree = "<group>"; };
-		152CF5EF2918E08300517C02 /* Universal-PrivateLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Universal-PrivateLibrary"; path = "../../Universal-PrivateLibrary"; sourceTree = "<group>"; };
 		152CF5F82919066000517C02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		152CF5FA2919072000517C02 /* DustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustModel.swift; sourceTree = "<group>"; };
 		152CF5FD29194DDA00517C02 /* DustStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStationModel.swift; sourceTree = "<group>"; };
@@ -63,10 +63,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B2185C2924EF2B0024A254 /* Alamofire in Frameworks */,
 				152CF5EC2918E05100517C02 /* Beltex in Frameworks */,
-				152CF5F12918E0A400517C02 /* PrivatePackage in Frameworks */,
-				15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */,
 				152CF5EE2918E05100517C02 /* SystemKit in Frameworks */,
+				15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */,
+				15B218592924EEDC0024A254 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +154,6 @@
 		15A81448291122C700AB5B03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				152CF5EF2918E08300517C02 /* Universal-PrivateLibrary */,
 				152CF5EA2918E01000517C02 /* Universal-SystemKit */,
 				15C500A229112EE2009ED8A2 /* CoreLocation.framework */,
 			);
@@ -187,7 +187,8 @@
 			packageProductDependencies = (
 				152CF5EB2918E05100517C02 /* Beltex */,
 				152CF5ED2918E05100517C02 /* SystemKit */,
-				152CF5F02918E0A400517C02 /* PrivatePackage */,
+				15B218582924EEDC0024A254 /* SwiftyBeaver */,
+				15B2185B2924EF2B0024A254 /* Alamofire */,
 			);
 			productName = CleanDay;
 			productReference = 151D1CB229100EB8000CB8D7 /* CleanDay.app */;
@@ -219,6 +220,8 @@
 			);
 			mainGroup = 151D1CA929100EB7000CB8D7;
 			packageReferences = (
+				15B218572924EEDC0024A254 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				15B2185A2924EF2A0024A254 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 151D1CB329100EB8000CB8D7 /* Products */;
 			projectDirPath = "";
@@ -494,6 +497,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		15B218572924EEDC0024A254 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		15B2185A2924EF2A0024A254 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		152CF5EB2918E05100517C02 /* Beltex */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -503,9 +525,15 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SystemKit;
 		};
-		152CF5F02918E0A400517C02 /* PrivatePackage */ = {
+		15B218582924EEDC0024A254 /* SwiftyBeaver */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = PrivatePackage;
+			package = 15B218572924EEDC0024A254 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		15B2185B2924EF2B0024A254 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15B2185A2924EF2A0024A254 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 

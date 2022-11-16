@@ -30,6 +30,19 @@ import SwiftyBeaver
 // MARK: - Private Extension AppDelegate
 private extension AppDelegate {
     
+    final func setupLogDestination(target: BaseDestination) {
+        
+        target.format = "$DHH:mm:ss$d $L: $M"
+        target.levelString.debug = "🟢 DEBUG"
+        target.levelString.info = "🔵 INFO"
+        target.levelString.warning = "🟡 WARNING"
+        target.levelString.error = "🔴 ERROR"
+        
+        // 실행중인 애플리케이션이 Debug 상태로 활성화가 되어 진 경우
+        let isDebug = SKSystem.shared.getBeingDebugged(pid: self.pid)
+        target.minLevel = isDebug ? SwiftyBeaver.Level.debug : SwiftyBeaver.Level.info
+    }
+    
     @objc final func togglePopover(_ sender: NSStatusBarButton) {
        
         switch self.popOver.isShown {
@@ -67,27 +80,24 @@ private extension AppDelegate {
 // MARK: - Internal Extension AppDelegate
 internal extension AppDelegate {
     
-    final func setupBeaver(pid: pid_t = getpid()) {
+    final func setupBeaver() {
         
-        log.info("[AppDelegate] Initalize, SwiftyBeaver")
+        #if DEBUG
+            NSLog("[%@][%@] Initazlie, SwiftyBeaver", AppDelegate.label, AppDelegate.identifier)
+        #endif
         
-        let console = ConsoleDestination()
-        let file = FileDestination()
+        let consoleDestination = ConsoleDestination()
+        consoleDestination.useTerminalColors = true
+        setupLogDestination(target: consoleDestination)
+        log.addDestination(consoleDestination)
         
-        console.format = "$DHH:mm:ss$d $L: $M"
+        let fileDestination = FileDestination()
+        setupLogDestination(target: fileDestination)
+        log.addDestination(fileDestination)
         
-        // Debug 속성으로 프로그램을 실행 시 로그 표시를 Debug 부터 표시합니다.
-        let result = SKSystem.shared.getBeingDebugged(pid: pid)
-        console.minLevel = result ? SwiftyBeaver.Level.debug : SwiftyBeaver.Level.info
-        
-        console.useTerminalColors = true
-        console.levelString.debug = "🟢 DEBUG"
-        console.levelString.info = "🔵 INFO"
-        console.levelString.warning = "🟡 WARNING"
-        console.levelString.error = "🔴 ERROR"
-        
-        log.addDestination(console)
-        log.addDestination(file)
+        let cloudDestination = SBPlatformDestination(appID: "6JvLLY", appSecret: "nlc749Bhy2v0i7zLhbWsuwejebogSdll", encryptionKey: "ocLUmjhjcdkkilgs8Ztarh53L6H4bQay")
+        setupLogDestination(target: cloudDestination)
+        log.addDestination(cloudDestination)
     }
     
     final func setupStatusItem() {
@@ -99,9 +109,10 @@ internal extension AppDelegate {
         self.statusItem.button?.action = #selector(togglePopover)
         self.statusItem.button?.identifier = .init(rawValue: AppDelegate.identifier)
         
-//        self.popOver.contentViewController = SKSystem.shared.loadViewController(type: ViewController.self,
-//                                                                                storyboardName: StoryboardInfo.main.name,
-//                                                                                controllerName: ViewControllerInfo.viewController.name)
+        let contentViewController = SKSystem.shared.loadViewController(name: StoryboardInfo.main.name,
+                                                                       withIdentifier: ViewControllerInfo.viewController.name,
+                                                                       type: NSViewController.self)
+        self.popOver.contentViewController = contentViewController
     }
     
     final func setupLocationManager() {

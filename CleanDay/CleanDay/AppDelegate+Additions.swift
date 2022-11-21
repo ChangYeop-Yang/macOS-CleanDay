@@ -80,35 +80,30 @@ private extension AppDelegate {
 // MARK: - Internal Extension AppDelegate
 internal extension AppDelegate {
     
-    final func getConfiguration(forResource: String = "Configure", ofType: String = "plist") -> NSDictionary {
-        
-        guard let fileURLWithPath = Bundle.main.path(forResource: forResource, ofType: ofType) else {
-            log.error("[AppDelegate] Error, Could't load Bunlde Resource Path")
-            return NSDictionary.init()
-        }
-        
-        let contentsOf = URL(fileURLWithPath: fileURLWithPath)
-        return NSDictionary(contentsOf: contentsOf) ?? NSDictionary.init()
-    }
-    
     final func setupBeaver() {
         
         #if DEBUG
             NSLog("[%@][%@] Initazlie, SwiftyBeaver", AppDelegate.label, AppDelegate.identifier)
         #endif
         
+        // FileDestination ConsoleDestination 설정합니다.
         let consoleDestination = ConsoleDestination()
         consoleDestination.useTerminalColors = true
         setupLogDestination(target: consoleDestination)
         log.addDestination(consoleDestination)
         
+        // SwiftyBeaver FileDestination 설정합니다.
         let fileDestination = FileDestination()
         setupLogDestination(target: fileDestination)
         log.addDestination(fileDestination)
         
-        let cloudDestination = SBPlatformDestination(appID: "6JvLLY", appSecret: "nlc749Bhy2v0i7zLhbWsuwejebogSdll", encryptionKey: "ocLUmjhjcdkkilgs8Ztarh53L6H4bQay")
-        setupLogDestination(target: cloudDestination)
-        log.addDestination(cloudDestination)
+        // SwiftyBeaver Cloud 설정 작업을 수행합니다.
+        if let configure = ConfigureModel.getAppConfigure() {
+            let keys = configure.serviceKeys.swiftyBeaverKey
+            let cloudDestination = SBPlatformDestination(appID: keys.appID, appSecret: keys.secret, encryptionKey: keys.encryption)
+            setupLogDestination(target: cloudDestination)
+            log.addDestination(cloudDestination)
+        }
     }
     
     final func setupStatusItem() {

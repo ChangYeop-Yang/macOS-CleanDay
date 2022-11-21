@@ -21,24 +21,13 @@
  */
 
 #if os(macOS)
+import AppKit
 import Foundation
-import CoreLocation
 
-// MARK: - Extension CLLocationManagerDelegate
-extension AppDelegate: CLLocationManagerDelegate {
+internal class BaseViewControllerModel: NSObject {
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        #if DEBUG
-            NSLog("[%@][%@] \(locations)", AppDelegate.label, AppDelegate.identifier)
-        #endif
-        
-        NotificationCenter.default.post(name: .NOTI_POST_COORDINATE, object: locations)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-        log.error("[AppDelegate] Error, \(error.localizedDescription)")
-    }
+    // MARK: - Object Properties
+    internal let appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
+    internal let appConfigure: ConfigureModel.Configure? = ConfigureModel.getAppConfigure()
 }
 #endif

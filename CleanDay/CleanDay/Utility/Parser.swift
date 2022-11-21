@@ -64,7 +64,7 @@ private extension Parser {
 public extension Parser {
     
     final func requestJSON<T: Decodable>(url: String, type: T.Type,
-                                         method: HTTPMethod,
+                                         method: HTTPMethod = .get,
                                          encoding: ParameterEncoding = URLEncoding.default,
                                          headers: Optional<HTTPHeaders> = nil,
                                          parameters: Optional<Parameters> = nil) async throws -> Optional<T> {
@@ -79,7 +79,8 @@ public extension Parser {
     }
     
     final func requestString(url: String,
-                             method: HTTPMethod, parameters: Optional<Parameters> = nil) async throws -> Optional<String> {
+                             method: HTTPMethod = .get,
+                             parameters: Optional<Parameters> = nil) async throws -> Optional<String> {
         
         log.info("[Parser] Action, URL Session Request String: \(url)")
         

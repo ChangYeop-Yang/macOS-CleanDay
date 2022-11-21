@@ -27,7 +27,7 @@ import WeatherKit
 import Foundation
 import CoreLocation
 
-internal class ViewControllerModel: NSObject, SKClass {
+internal class ViewControllerModel: BaseViewControllerModel, SKClass {
     
     // MARK: - Object Properties
     public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
@@ -44,5 +44,40 @@ private extension ViewControllerModel {
 // MARK: - Internal Extension ViewControllerModel
 internal extension ViewControllerModel {
     
+    typealias Geographic = Optional<GeographicTransform.Geographic>
+    final func requestTransformGeographic(serviceKey: String, coordinate: CLLocationCoordinate2D,
+                                          outputType: GeographicTransform.GeographicCoordinateType) async throws -> Geographic {
+    
+    log.info("[ViewControllerModel] Action, Request Geographic Tranform")
+            
+    let headers = GeographicTransform.createHeader(keyValue: serviceKey)
+        let parameters = GeographicTransform.createParameters(coordinate: coordinate, outputType: outputType)
+    
+    return try await Parser.shared.requestJSON(url: GeographicTransform.targetPath,
+                                                type: GeographicTransform.Geographic.self,
+                                                headers: headers, parameters: parameters)
+}
+    
+    typealias DustStation = Optional<DustStationModel.Response>
+    final func requestDustStation(serviceKey: String, tmX: Double, tmY: Double) async throws -> DustStation {
+        
+        log.info("[ViewControllerModel] Action, Request Measurement Dust Station")
+                
+        let parameters = DustStationModel.createParameters(serviceKey: serviceKey, tmX: tmX, tmY: tmY)
+        
+        return try await Parser.shared.requestJSON(url: DustStationModel.targetPath,
+                                                   type: DustStationModel.Response.self, parameters: parameters)
+    }
+    
+    typealias Dust = Optional<DustModel.Response>
+    final func requestDust(serviceKey: String, stationName: String) async throws -> Dust {
+        
+        log.info("[ViewControllerModel] Action, Request Measurement Dust")
+        
+        let parameters = DustModel.createParameters(serviceKey: serviceKey, stationName: stationName)
+        
+        return try await Parser.shared.requestJSON(url: DustModel.targetPath,
+                                                   type: DustModel.Response.self, parameters: parameters)
+    }
 }
 #endif

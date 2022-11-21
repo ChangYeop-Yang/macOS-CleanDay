@@ -23,6 +23,11 @@
 #if os(macOS)
 import Foundation
 
+import SwiftyBeaver
+
+// MARK: - Global Properties
+public let log = SwiftyBeaver.self
+
 // MARK: - Enum
 public enum StoryboardInfo: String {
     
@@ -40,10 +45,9 @@ public enum ViewControllerInfo: String {
     public var name: String { return self.rawValue }
 }
 
-public enum ServiceSerialKey: String {
+// MARK: - Extension Notification.Name
+public extension Notification.Name {
     
-    case kakao = "KakaoServiceKey"
-    case generic = "GenericServiceKey"
-    case SwiftyBeadver = "SwiftyBeadverKey"
+    static let NOTI_POST_COORDINATE = Notification.Name("985ebe51bd22160e5cbf7a641827a78b3f1e8a0c")
 }
 #endif

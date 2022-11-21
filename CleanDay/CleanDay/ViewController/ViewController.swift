@@ -34,8 +34,7 @@ class ViewController: BaseViewController, SKClass {
     public static var label: String = "com.ChangYeopYang.CleanDay.ViewController"
     public static var identifier: String = "9BC867F3-FD37-42B2-AA96-D238FB14B527"
     
-    private var viewModel = ViewControllerModel()
-    
+    private let viewModel = ViewControllerModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +54,13 @@ class ViewController: BaseViewController, SKClass {
 //                                                                 parameters: GeographicTransform.createParameters(coordinate: cor, outputType: .TM))
 //                print(result)
                 
-                let result = try await Parser.shared.requestJSON(url: DustStationModel.targetPath,
-                                                                 type: DustStationModel.Response.self,
-                                                                 method: .get,
-                                                                 parameters: DustStationModel.createParameters(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", tmX: 244148.546388, tmY: 412423.75772))
+//                let result = try await Parser.shared.requestJSON(url: DustStationModel.targetPath,
+//                                                                 type: DustStationModel.Response.self,
+//                                                                 method: .get,
+//                                                                 parameters: DustStationModel.createParameters(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", tmX: 244148.546388, tmY: 412423.75772))
+//                print(result)
+                
+                let result = try await self.viewModel.requestDust(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", stationName: "종로구")
                 print(result)
             } catch let error as NSError {
                 print(error.localizedDescription)

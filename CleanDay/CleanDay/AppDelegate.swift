@@ -27,9 +27,6 @@ import SystemKit
 import SwiftyBeaver
 import CoreLocation
 
-// MARK: - Global Properties
-public let log = SwiftyBeaver.self
-
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
 

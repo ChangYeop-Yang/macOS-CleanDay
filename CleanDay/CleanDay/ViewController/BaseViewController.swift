@@ -26,7 +26,6 @@ import Foundation
 
 internal class BaseViewController: NSViewController {
     
-    // MARK: - Object Properties
-    internal var appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
+    
 }
 #endif

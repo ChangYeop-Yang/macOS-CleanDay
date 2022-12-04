@@ -5,6 +5,8 @@
 *.entitlements
 *.xcdatamodeld
 *.sqlite3
+!/CleanDayLibrary
+/CleanDayLibrary/*
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:

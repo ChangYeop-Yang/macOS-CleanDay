@@ -21,17 +21,22 @@
  */
 
 #if os(macOS)
-import SystemKit
-
+import Cocoa
 import Foundation
-import WeatherKit
 
-internal class ViewControllerModel: BaseViewControllerModel, SKClass {
+// MARK: Extension NSTableViewDataSource, NSTableViewDelegate
+extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     
-    // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
-    public static var identifier: String = "EE38D2FA-39D8-47CB-AD71-E19666B054A3"
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return 5
+    }
     
-    internal let weatherService = WeatherService()
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentsCellView"), owner: self)
+        
+        return cell
+    }
 }
+
 #endif

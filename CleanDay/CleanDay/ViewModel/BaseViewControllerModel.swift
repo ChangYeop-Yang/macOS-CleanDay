@@ -22,12 +22,11 @@
 
 #if os(macOS)
 import AppKit
-import Foundation
 
 internal class BaseViewControllerModel: NSObject {
     
     // MARK: - Object Properties
-    internal let appDelegate: AppDelegate? = (NSApplication.shared.delegate as? AppDelegate)
-    internal let appConfigure: ConfigureModel.Configure? = ConfigureModel.getAppConfigure()
+    internal let appDelegate = (NSApplication.shared.delegate) as? AppDelegate
+    internal let appConfigure = ConfigureModel.getAppConfigure()
 }
 #endif

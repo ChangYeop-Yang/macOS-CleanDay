@@ -21,17 +21,15 @@
  */
 
 #if os(macOS)
-import SystemKit
+import Cocoa
 
-import Foundation
-import WeatherKit
+internal class WeatherStateView: NSBox {
 
-internal class ViewControllerModel: BaseViewControllerModel, SKClass {
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+
+        // Drawing code here.
+    }
     
-    // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
-    public static var identifier: String = "EE38D2FA-39D8-47CB-AD71-E19666B054A3"
-    
-    internal let weatherService = WeatherService()
 }
 #endif

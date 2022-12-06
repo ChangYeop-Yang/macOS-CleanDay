@@ -25,7 +25,6 @@ import Cocoa
 
 import SystemKit
 import SwiftyBeaver
-import CoreLocation
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
@@ -36,7 +35,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
     
     internal let pid = pid_t()
     internal let popOver = NSPopover()
-    internal var locationManager: Optional<SKCoreLocation> = nil
     internal let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -44,7 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, SKClass {
         // Insert code here to initialize your application
         setupBeaver()
         setupStatusItem()
-        setupLocationManager()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

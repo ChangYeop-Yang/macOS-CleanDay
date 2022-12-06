@@ -57,24 +57,6 @@ private extension AppDelegate {
             self.popOver.performClose(sender)
         }
     }
-    
-    @discardableResult
-    final func checkLocationPermission() -> Bool {
-        
-        guard let result = self.locationManager?.getAuthorizationStatus() else {
-            log.error("[AppDelegate] Error, Could't Get CoreLocation CLAuthorizationStatus")
-            return false
-        }
-        
-        // 위치 권한 여부를 확인합니다.
-        if result.isPermission { return result.isPermission }
-        
-        // 현재 위치 권한이 존재하지 않는 경우에는 환경설정을 표시합니다.
-        self.locationManager?.openPrivacyLocationServicePref()
-        log.info("[AppDelegate] Action, Open Privacy Location Service Preference: \(result.status)")
-        
-        return false
-    }
 }
 
 // MARK: - Internal Extension AppDelegate
@@ -109,7 +91,7 @@ internal extension AppDelegate {
     final func setupStatusItem() {
         
         #if DEBUG
-            NSLog("[%@][%@] Initazlie, NSStatusBarButton", AppDelegate.label, AppDelegate.identifier)
+            NSLog("[%@][%@] SetUp NSStatusItem", AppDelegate.label, AppDelegate.identifier)
         #endif
         
         // A status item length that dynamically adjusts to the width of its contents.
@@ -120,26 +102,28 @@ internal extension AppDelegate {
         self.statusItem.button?.action = #selector(togglePopover)
         self.statusItem.button?.identifier = .init(rawValue: AppDelegate.identifier)
         
+        let withIdentifier = ViewControllerInfo.viewController.name
         let contentViewController = SKSystem.shared.loadViewController(name: StoryboardInfo.main.name,
-                                                                       withIdentifier: ViewControllerInfo.viewController.name,
+                                                                       withIdentifier: withIdentifier,
                                                                        type: NSViewController.self)
         self.popOver.contentViewController = contentViewController
     }
     
-    final func setupLocationManager() {
+    final func setStatusBarButton(image: NSImage?, colors: NSColor..., title: String, toolTip: String) {
         
         #if DEBUG
-            NSLog("[%@][%@] Initazlie, CLLocationManager", AppDelegate.label, AppDelegate.identifier)
+            NSLog("[%@][%@] SetUp NSStatusBarButton", AppDelegate.label, AppDelegate.identifier)
         #endif
         
-        // 사용자의 위치 정보를 가져오기 위하여 CoreLocation 권한 설정 작업을 수행합니다.
-        self.locationManager = SKCoreLocation(delegate: self)
-        
-        // 현재 위치 권한 상태를 확인하여 권한이 없는 경우에는 사용자에게 환경설정 창을 보여줍니다.
-        checkLocationPermission()
-        
-        // 위치 정보를 얻어오기 위해서 위치 권한을 요청합니다.
-        self.locationManager?.requestAuthorization()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let configuration = NSImage.SymbolConfiguration(paletteColors: colors)            
+            self.statusItem.button?.image = image?.withSymbolConfiguration(configuration)
+
+            self.statusItem.button?.title = title
+            self.statusItem.button?.toolTip = toolTip
+        }
     }
 }
 #endif

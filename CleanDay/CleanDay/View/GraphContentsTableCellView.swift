@@ -21,24 +21,15 @@
  */
 
 #if os(macOS)
-import Foundation
-import CoreLocation
+import Cocoa
 
-// MARK: - Extension CLLocationManagerDelegate
-extension AppDelegate: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        #if DEBUG
-            NSLog("[%@][%@] \(locations)", AppDelegate.label, AppDelegate.identifier)
-        #endif
-        
-        NotificationCenter.default.post(name: .NOTI_POST_COORDINATE, object: locations)
+internal class GraphContentsTableCellView: NSTableCellView {
+
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+
+        // Drawing code here.
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-        log.error("[AppDelegate] Error, \(error.localizedDescription)")
-    }
 }
 #endif

@@ -32,6 +32,7 @@ public let log = SwiftyBeaver.self
 public enum StoryboardInfo: String {
     
     case main = "Main"
+    case contentCellView = "ContentsCellView"
     
     // MARK: Enum Properties
     public var name: String { return self.rawValue }

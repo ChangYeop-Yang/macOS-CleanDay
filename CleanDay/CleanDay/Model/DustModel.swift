@@ -107,9 +107,16 @@ public class DustModel: SKRequest {
     
     // MARK: - Enum
     public enum DataTerm: String {
+        
         case daily = "DAILY"
         case month = "MONTH"
         case threeMonth = "3MONTH"
+    }
+    
+    public enum DustType: String {
+        
+        case fineDust = "미세먼지"
+        case ultrafineDust = "초미세먼지"
     }
 }
 

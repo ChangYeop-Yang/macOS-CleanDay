@@ -22,13 +22,11 @@
 
 #if os(macOS)
 import Cocoa
-import CoreLocation
-import WeatherKit
 
-import Alamofire
+import CoreLocation
 import SystemKit
 
-class ViewController: BaseViewController, SKClass {
+internal class ViewController: BaseViewController, SKClass {
     
     // MARK: - Object Properties
     public static var label: String = "com.ChangYeopYang.CleanDay.ViewController"
@@ -36,38 +34,26 @@ class ViewController: BaseViewController, SKClass {
     
     private let viewModel = ViewControllerModel()
     
+    // MARK: - Outlet Properties
+    @IBOutlet weak var highlightTableView: NSTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         
         Task {
-            
             do {
-//                let dd = ConfigureResource.init().configure["SerialKeys"] as? Dictionary<String, String>
-//                print(dd)
-//                let cor = CLLocationCoordinate2D(latitude: 37.5666805, longitude: 126.9784147)
-//                let result = try await Parser.shared.requestJSON(url: GeographicTransform.targetPath,
-//                                                                 type: GeographicTransform.Geographic.self,
-//                                                                 method: .get,
-//                                                                 headers: GeographicTransform.createHeader(keyValue: "21363fa7b4c6d1d74548f36baf34f50d"),
-//                                                                 parameters: GeographicTransform.createParameters(coordinate: cor, outputType: .TM))
-//                print(result)
-                
-//                let result = try await Parser.shared.requestJSON(url: DustStationModel.targetPath,
-//                                                                 type: DustStationModel.Response.self,
-//                                                                 method: .get,
-//                                                                 parameters: DustStationModel.createParameters(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", tmX: 244148.546388, tmY: 412423.75772))
-//                print(result)
                 
                 let result = try await self.viewModel.requestDust(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", stationName: "종로구")
                 print(result)
+                
+                setupStatusBarWithDust(response: result!, type: .ultrafineDust)
             } catch let error as NSError {
-                print(error.localizedDescription)
                 print(error.description)
             }
+            
         }
-        
     }
     
     override func viewDidAppear() {
@@ -80,6 +66,19 @@ class ViewController: BaseViewController, SKClass {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+}
+
+// MARK: - Private Extension ViewController
+private extension ViewController {
+    
+    final func initalize() {
+        
+        let nib = NSNib(nibNamed: ContentsCellView.identifier, bundle: nil)
+        let forIdentifier = NSUserInterfaceItemIdentifier(ContentsCellView.identifier)
+        
+        highlightTableView.register(nib, forIdentifier: forIdentifier)
+        highlightTableView.intercellSpacing = NSSize(width: 32, height: 16)
     }
 }
 #endif

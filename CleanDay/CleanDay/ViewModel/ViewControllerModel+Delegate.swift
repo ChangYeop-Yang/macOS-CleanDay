@@ -21,32 +21,26 @@
  */
 
 #if os(macOS)
-import AppKit
+import Foundation
+import CoreLocation
 
-import SystemKit
-
-@IBDesignable
-public class RoundCocoaBox: NSBox, SKClass {
+// MARK: - Extension CLLocationManagerDelegate
+extension ViewControllerModel: CLLocationManagerDelegate {
     
-    // MARK: - Object Properties
-    public static var label: String = ""
-    public static var identifier: String = ""
-    
-    // MARK: - IBInspectable Outlet Properties
-    @IBInspectable
-    public var backgroundColor: NSColor
-    
-    @IBInspectable
-    public var clipsToBounds: Bool = true
-    
-    @IBInspectable
-    public var radius: CGFloat = CGFloat.zero
-    
-    // MARK: - Initazlie
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        #if DEBUG
+            log.error("[CLLocationManagerDelegate] Receive, CLLocation: \(locations)")
+        #endif
+        
+        
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        #if DEBUG
+            log.error("[CLLocationManagerDelegate] Error, \(error.localizedDescription)")
+        #endif
+    }
 }
-
 #endif

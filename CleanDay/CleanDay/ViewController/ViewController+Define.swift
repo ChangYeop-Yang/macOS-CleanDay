@@ -21,17 +21,19 @@
  */
 
 #if os(macOS)
-import SystemKit
+import Cocoa
 
-import Foundation
-import WeatherKit
-
-internal class ViewControllerModel: BaseViewControllerModel, SKClass {
+internal extension ViewController {
     
-    // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
-    public static var identifier: String = "EE38D2FA-39D8-47CB-AD71-E19666B054A3"
-    
-    internal let weatherService = WeatherService()
+    // MARK: - Struct
+    struct StatusBarResult {
+        
+        internal var image: NSImage? = nil
+        
+        internal var imageColor: NSColor = NSColor.white
+        
+        internal var title: String = String.init()
+        internal var tooltip: String = String.init()
+    }
 }
 #endif

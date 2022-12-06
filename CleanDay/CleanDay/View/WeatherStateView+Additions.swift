@@ -21,17 +21,15 @@
  */
 
 #if os(macOS)
-import SystemKit
-
 import Foundation
-import WeatherKit
 
-internal class ViewControllerModel: BaseViewControllerModel, SKClass {
+// MARK: - Private Extension WeatherStateView
+private extension WeatherStateView {
     
-    // MARK: - Object Properties
-    public static var label: String = "com.ChangYeopYang.CleanDay.ViewControllerModel"
-    public static var identifier: String = "EE38D2FA-39D8-47CB-AD71-E19666B054A3"
+}
+
+// MARK: - Internal Extension WeatherStateView
+internal extension WeatherStateView {
     
-    internal let weatherService = WeatherService()
 }
 #endif

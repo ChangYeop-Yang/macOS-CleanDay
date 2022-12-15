@@ -35,25 +35,18 @@ internal class ViewController: BaseViewController, SKClass {
     private let viewModel = ViewControllerModel()
     
     // MARK: - Outlet Properties
-    @IBOutlet weak var highlightTableView: NSTableView!
-    
+    @IBOutlet internal weak var dustImageView: NSImageView!
+    @IBOutlet internal weak var dustPM10ValueLabel: NSTextField!
+    @IBOutlet internal weak var dustPM25ValueLabel: NSTextField!
+    @IBOutlet internal weak var dustStationLabel: NSTextField!
+    @IBOutlet internal weak var weakOfDayWeatherStackView: NSStackView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        Task {
-            do {
-                
-                let result = try await self.viewModel.requestDust(serviceKey: "kvSiPNFHeegZG07hmSa+9NvgFMIeiU62lgyYDMlSdTCENKRsT8CodJnqgpie1kwq4ZIdo4355f6BPcgDi8Me4g==", stationName: "종로구")
-                print(result)
-                
-                setupStatusBarWithDust(response: result!, type: .ultrafineDust)
-            } catch let error as NSError {
-                print(error.description)
-            }
-            
-        }
+        createWeekOfDayWeatherState(stackView: self.weakOfDayWeatherStackView)
     }
     
     override func viewDidAppear() {
@@ -77,8 +70,6 @@ private extension ViewController {
         let nib = NSNib(nibNamed: ContentsCellView.identifier, bundle: nil)
         let forIdentifier = NSUserInterfaceItemIdentifier(ContentsCellView.identifier)
         
-        highlightTableView.register(nib, forIdentifier: forIdentifier)
-        highlightTableView.intercellSpacing = NSSize(width: 32, height: 16)
     }
 }
 #endif

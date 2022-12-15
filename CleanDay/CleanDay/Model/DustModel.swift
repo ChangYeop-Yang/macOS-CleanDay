@@ -117,6 +117,8 @@ public class DustModel: SKRequest {
         
         case fineDust = "미세먼지"
         case ultrafineDust = "초미세먼지"
+        
+        public var name: String { return self.rawValue }
     }
 }
 

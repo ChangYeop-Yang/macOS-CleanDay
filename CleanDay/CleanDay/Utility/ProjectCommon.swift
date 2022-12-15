@@ -33,6 +33,7 @@ public enum StoryboardInfo: String {
     
     case main = "Main"
     case contentCellView = "ContentsCellView"
+    case weatherStateView = "WeatherStateView"
     
     // MARK: Enum Properties
     public var name: String { return self.rawValue }

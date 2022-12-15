@@ -192,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				15B7F5A1292B826600E3C383 /* ConfigureModel.swift */,
-				159FAD792923CD110059B6FF /* MeasurementModel.swift */,
 				152CF5FA2919072000517C02 /* DustModel.swift */,
 				152CF5FD29194DDA00517C02 /* DustStationModel.swift */,
+				159FAD792923CD110059B6FF /* MeasurementModel.swift */,
 				15C5F1C3291A9052000C4B6C /* GeographicTransformModel.swift */,
 			);
 			path = Model;

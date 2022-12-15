@@ -23,6 +23,8 @@
 #if os(macOS)
 import Cocoa
 
+import SystemKit
+
 // MARK: - Private Extension ViewController
 private extension ViewController {
     
@@ -63,11 +65,44 @@ private extension ViewController {
 // MARK: - Internal Extension ViewController
 internal extension ViewController {
     
+    final func createWeekOfDayWeatherState(stackView: NSStackView) {
+        
+        #if DEBUG
+            NSLog("[%@][%@] Action, Create WeekOfDay WeatherStateView", Self.label, Self.identifier)
+        #endif
+        
+        for weekOfDay in WeatherStateView.WeekOfDay.allCases {
+            
+            DispatchQueue.main.async {
+                
+                // WeatherStateView CustomView를 생성합니다.
+                guard let view = SKCocoa.shared.loadCustomView(name: StoryboardInfo.weatherStateView.name,
+                                                               type: WeatherStateView.self) else {
+                    log.error("[ViewController] Error, Could't Create WeekOfDay WeatherStateView")
+                    return
+                }
+                
+                // NSStackView에 생성 된 WeatherStateView를 추가합니다.
+                stackView.addArrangedSubview(view)
+                
+                // TopAnchor 및 BottomAnchor에 AutoLayout을 설정합니다.
+                view.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+                view.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+                
+                view.setup(weekOfDay: weekOfDay, temperature: 26.5, systemSymbolName: "cloud.sun.fill")
+            }
+        }
+    }
+    
     final func setupStatusBarWithWeather() {
         
     }
     
     final func setupStatusBarWithDust(response: DustModel.Response, type: DustModel.DustType) {
+        
+        #if DEBUG
+            NSLog("[%@][%@] Action, SetUp Dust NSStatusBar", Self.label, Self.identifier)
+        #endif
         
         guard let first = response.response.body.items.first else { return }
         
@@ -79,6 +114,27 @@ internal extension ViewController {
             setStatusBarWithDust(grade: first.pm25Grade, value: first.pm25Value,
                                  date: first.dataTime, type: type)
         }
+    }
+    
+    final func setupDustStateView(response: DustModel.Response, station: String) {
+        
+        #if DEBUG
+            NSLog("[%@][%@] Action, SetUp Dust StateView", Self.label, Self.identifier)
+        #endif
+        
+        guard let recent = response.response.body.items.first else { return }
+        
+        let toolTip = String(format: "⏱️ 측정시간: %@", recent.dataTime)
+        
+        self.dustStationLabel.stringValue = station
+        
+        self.dustPM10ValueLabel.toolTip = toolTip
+        self.dustPM10ValueLabel.stringValue = String(format: "%@ %@ ㎍/㎥",
+                                                     DustModel.DustType.fineDust.name, recent.pm10Value)
+        
+        self.dustPM25ValueLabel.toolTip = toolTip
+        self.dustPM25ValueLabel.stringValue = String(format: "%@ %@ ㎍/㎥",
+                                                     DustModel.DustType.ultrafineDust.name, recent.pm25Value)
     }
 }
 #endif

@@ -99,11 +99,12 @@ internal extension AppDelegate {
         
         // The button displayed in the status bar.
         self.statusItem.button?.image = NSImage(named: "explore-symbol")
+        self.statusItem.button?.title = "오늘도맑음"
         self.statusItem.button?.action = #selector(togglePopover)
         self.statusItem.button?.identifier = .init(rawValue: AppDelegate.identifier)
         
         let withIdentifier = ViewControllerInfo.viewController.name
-        let contentViewController = SKSystem.shared.loadViewController(name: StoryboardInfo.main.name,
+        let contentViewController = SKCocoa.shared.loadViewController(name: StoryboardInfo.main.name,
                                                                        withIdentifier: withIdentifier,
                                                                        type: NSViewController.self)
         self.popOver.contentViewController = contentViewController
@@ -118,9 +119,8 @@ internal extension AppDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            let configuration = NSImage.SymbolConfiguration(paletteColors: colors)            
+            let configuration = NSImage.SymbolConfiguration(paletteColors: colors)
             self.statusItem.button?.image = image?.withSymbolConfiguration(configuration)
-
             self.statusItem.button?.title = title
             self.statusItem.button?.toolTip = toolTip
         }

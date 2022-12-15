@@ -1,10 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swiftpackagemanager,swift,macos,xcode,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=swiftpackagemanager,swift,macos,xcode,git
 
+## Application
 *.beaver
 *.entitlements
 *.xcdatamodeld
 *.sqlite3
+*.storyboard
 !/CleanDayLibrary
 /CleanDayLibrary/*
 

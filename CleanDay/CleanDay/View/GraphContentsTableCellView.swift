@@ -23,13 +23,33 @@
 #if os(macOS)
 import Cocoa
 
-internal class GraphContentsTableCellView: NSTableCellView {
+import Charts
+import SystemKit
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
-    }
+@IBDesignable
+public class GraphContentsTableCellView: NSTableCellView, SKClass {
     
+    // MARK: - Object Properties
+    public static let label = "com.ChangYeopYang.CleanDay.GraphContentsTableCellView"
+    public static let identifier = "GraphContentsTableCellView"
+    public static let itemIdentifier = NSUserInterfaceItemIdentifier(GraphContentsTableCellView.identifier)
+        
+    // MARK: - Outlet Properties
+    @IBOutlet internal weak var chartsView: NSView!
+    @IBOutlet internal weak var logoImageView: NSImageView!
+    @IBOutlet internal weak var dateLabel: NSTextField!
+    @IBOutlet internal weak var titleLabel: NSTextField!
+    
+    // MARK: - IBInspectable Properties
+    @IBInspectable public var masksToBounds: Bool = true
+    @IBInspectable public var cornerRadius: CGFloat = CGFloat.zero
+    @IBInspectable public var backgroundColor: CGColor = NSColor.clear.cgColor
+    
+    public override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        
+        // Drawing code here.
+        initalize()
+    }
 }
 #endif

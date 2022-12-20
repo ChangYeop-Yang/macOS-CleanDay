@@ -22,8 +22,8 @@
 
 #if os(macOS)
 import Cocoa
-
 import CoreLocation
+
 import SystemKit
 
 internal class ViewController: BaseViewController, SKClass {
@@ -40,18 +40,28 @@ internal class ViewController: BaseViewController, SKClass {
     @IBOutlet internal weak var dustPM25ValueLabel: NSTextField!
     @IBOutlet internal weak var dustStationLabel: NSTextField!
     @IBOutlet internal weak var weakOfDayWeatherStackView: NSStackView!
-
+    @IBOutlet internal weak var weatherTableView: NSTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        initalize()
         
+        do {
+            let reporter = SKCrashReporter(crashReportDirectory: "/Users/changyeop-yang/Desktop",
+                                           crashReportFileName: "example_report")
+            try reporter.enable { _, _, _ in print("🛠🗂🛠🗂🛠🗂🛠🗂🛠🗂🛠🗂") }
+
+        } catch let error as NSError {
+            print(error.description)
+        }
+        
+        // Do any additional setup after loading the view.
         createWeekOfDayWeatherState(stackView: self.weakOfDayWeatherStackView)
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        
         
     }
 
@@ -67,9 +77,10 @@ private extension ViewController {
     
     final func initalize() {
         
-        let nib = NSNib(nibNamed: ContentsCellView.identifier, bundle: nil)
-        let forIdentifier = NSUserInterfaceItemIdentifier(ContentsCellView.identifier)
+        let nib = NSNib(nibNamed: GraphContentsTableCellView.identifier, bundle: nil)
+        let forIdentifier = GraphContentsTableCellView.itemIdentifier
         
+        self.weatherTableView.register(nib, forIdentifier: forIdentifier)
     }
 }
 #endif

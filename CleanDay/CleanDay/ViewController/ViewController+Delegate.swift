@@ -33,7 +33,7 @@ extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ContentsCellView"), owner: self)
+        let cell = tableView.makeView(withIdentifier: GraphContentsTableCellView.itemIdentifier, owner: self)
         
         return cell
     }

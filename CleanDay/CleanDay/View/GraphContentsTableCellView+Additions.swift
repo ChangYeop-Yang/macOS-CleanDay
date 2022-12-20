@@ -21,15 +21,50 @@
  */
 
 #if os(macOS)
-import Foundation
+import Cocoa
+import Charts
 
 // MARK: - Private Extension GraphContentsTableCellView
 private extension GraphContentsTableCellView {
     
+    final func drawChartView(parent: NSView) {
+        
+        
+    }
 }
 
-// MARK: - Internal Extension GraphContentsTableCellView
+// MARK: - Interal Extension GraphContentsTableCellView
 internal extension GraphContentsTableCellView {
     
+    final func initalize() {
+        
+        #if DEBUG
+            NSLog("[%@][%@] Initalize, GraphContentsTableCellView", Self.label, Self.identifier)
+        #endif
+        
+        self.layer?.cornerRadius = self.cornerRadius
+        self.layer?.masksToBounds = self.masksToBounds
+        self.layer?.backgroundColor = self.backgroundColor
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+// MARK: - Public Extension GraphContentsTableCellView
+public extension GraphContentsTableCellView {
+    
+    final func setup(title: String, date: String, systemSymbolName: String) {
+        
+        #if DEBUG
+            NSLog("[%@][%@] Action, Setup GraphContentsTableCellView SubViews", Self.label, Self.identifier)
+        #endif
+        
+        self.dateLabel.stringValue = date
+        self.titleLabel.stringValue = title
+        
+        self.logoImageView.image = NSImage(systemSymbolName: systemSymbolName, accessibilityDescription: nil)
+        
+        drawChartView(parent: self.chartsView)
+    }
 }
 #endif

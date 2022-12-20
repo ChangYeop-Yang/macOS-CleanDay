@@ -26,22 +26,20 @@
 		151D1CBD29100EBA000CB8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBC29100EBA000CB8D7 /* Assets.xcassets */; };
 		151D1CC029100EBA000CB8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151D1CBE29100EBA000CB8D7 /* Main.storyboard */; };
 		151D1CCC29101314000CB8D7 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151D1CCB29101314000CB8D7 /* ViewControllerModel.swift */; };
-		152CF5EC2918E05100517C02 /* Beltex in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5EB2918E05100517C02 /* Beltex */; };
 		152CF5EE2918E05100517C02 /* SystemKit in Frameworks */ = {isa = PBXBuildFile; productRef = 152CF5ED2918E05100517C02 /* SystemKit */; };
 		152CF5F92919066000517C02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5F82919066000517C02 /* BaseViewController.swift */; };
 		152CF5FB2919072000517C02 /* DustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FA2919072000517C02 /* DustModel.swift */; };
 		152CF5FE29194DDA00517C02 /* DustStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152CF5FD29194DDA00517C02 /* DustStationModel.swift */; };
 		1540D3FB2915639B009D7EA6 /* ProjectCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D3FA2915639B009D7EA6 /* ProjectCommon.swift */; };
 		159FAD7A2923CD110059B6FF /* MeasurementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAD792923CD110059B6FF /* MeasurementModel.swift */; };
-		15A26BA8292FAFA5004D72D8 /* TextContentsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A26BA7292FAFA5004D72D8 /* TextContentsCellView.xib */; };
-		15A26BAA292FAFF4004D72D8 /* TextContentsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A26BA9292FAFF4004D72D8 /* TextContentsCellView.swift */; };
+		15A0AE9629519FAD0026CCC8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
+		15A0AE9929519FEB0026CCC8 /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A0AE9829519FEB0026CCC8 /* WeatherKit.framework */; };
+		15A26BA8292FAFA5004D72D8 /* GraphContentsTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A26BA7292FAFA5004D72D8 /* GraphContentsTableCellView.xib */; };
+		15A26BAA292FAFF4004D72D8 /* GraphContentsTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A26BA9292FAFF4004D72D8 /* GraphContentsTableCellView.swift */; };
 		15A304822939CE1700A5BCFA /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A304812939CE1700A5BCFA /* PreferenceView.swift */; };
 		15A304842939CE5700A5BCFA /* WeatherStateView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A304832939CE5700A5BCFA /* WeatherStateView+Additions.swift */; };
-		15A304862939DAAB00A5BCFA /* GraphContentsTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A304852939DAAB00A5BCFA /* GraphContentsTableCellView.swift */; };
-		15A3048E2939F10B00A5BCFA /* GraphContentsTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A3048D2939F10B00A5BCFA /* GraphContentsTableCellView.xib */; };
-		15A304902939F4B800A5BCFA /* GraphContentsTableCellView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3048F2939F4B800A5BCFA /* GraphContentsTableCellView+Additions.swift */; };
 		15A304922939F4D700A5BCFA /* WeatherStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A304912939F4D700A5BCFA /* WeatherStateView.xib */; };
-		15A304942939F5E700A5BCFA /* TextContents+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A304932939F5E700A5BCFA /* TextContents+Additions.swift */; };
+		15A304942939F5E700A5BCFA /* GraphContentsTableCellView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A304932939F5E700A5BCFA /* GraphContentsTableCellView+Additions.swift */; };
 		15A3358A293CB74E007443A4 /* CleanDayLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 15A33589293CB74E007443A4 /* CleanDayLibrary */; };
 		15A6302D293F74F900ED938D /* ViewController+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6302C293F74F900ED938D /* ViewController+Define.swift */; };
 		15A756342934B9FD00F1E1A1 /* ViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A756332934B9FD00F1E1A1 /* ViewController+Delegate.swift */; };
@@ -49,7 +47,6 @@
 		15A75670293E1C7500E02163 /* ViewControllerModel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7566F293E1C7500E02163 /* ViewControllerModel+Additions.swift */; };
 		15A75672293E1CFE00E02163 /* ViewControllerModel+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A75671293E1CFE00E02163 /* ViewControllerModel+Delegate.swift */; };
 		15AFABC52914F83E000DF6BA /* AppDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AFABC42914F83E000DF6BA /* AppDelegate+Additions.swift */; };
-		15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C500A229112EE2009ED8A2 /* CoreLocation.framework */; };
 		15B35CAB2917ABCF0015E1A6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B35CAA2917ABCF0015E1A6 /* Parser.swift */; };
 		15B7F5A2292B826600E3C383 /* ConfigureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7F5A1292B826600E3C383 /* ConfigureModel.swift */; };
 		15B7F5A4292B8F4A00E3C383 /* BaseViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7F5A3292B8F4A00E3C383 /* BaseViewControllerModel.swift */; };
@@ -74,15 +71,13 @@
 		152CF5FD29194DDA00517C02 /* DustStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStationModel.swift; sourceTree = "<group>"; };
 		1540D3FA2915639B009D7EA6 /* ProjectCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCommon.swift; sourceTree = "<group>"; };
 		159FAD792923CD110059B6FF /* MeasurementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementModel.swift; sourceTree = "<group>"; };
-		15A26BA7292FAFA5004D72D8 /* TextContentsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextContentsCellView.xib; sourceTree = "<group>"; };
-		15A26BA9292FAFF4004D72D8 /* TextContentsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentsCellView.swift; sourceTree = "<group>"; };
+		15A0AE9829519FEB0026CCC8 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = System/Library/Frameworks/WeatherKit.framework; sourceTree = SDKROOT; };
+		15A26BA7292FAFA5004D72D8 /* GraphContentsTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphContentsTableCellView.xib; sourceTree = "<group>"; };
+		15A26BA9292FAFF4004D72D8 /* GraphContentsTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContentsTableCellView.swift; sourceTree = "<group>"; };
 		15A304812939CE1700A5BCFA /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		15A304832939CE5700A5BCFA /* WeatherStateView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherStateView+Additions.swift"; sourceTree = "<group>"; };
-		15A304852939DAAB00A5BCFA /* GraphContentsTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContentsTableCellView.swift; sourceTree = "<group>"; };
-		15A3048D2939F10B00A5BCFA /* GraphContentsTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphContentsTableCellView.xib; sourceTree = "<group>"; };
-		15A3048F2939F4B800A5BCFA /* GraphContentsTableCellView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphContentsTableCellView+Additions.swift"; sourceTree = "<group>"; };
 		15A304912939F4D700A5BCFA /* WeatherStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherStateView.xib; sourceTree = "<group>"; };
-		15A304932939F5E700A5BCFA /* TextContents+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextContents+Additions.swift"; sourceTree = "<group>"; };
+		15A304932939F5E700A5BCFA /* GraphContentsTableCellView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphContentsTableCellView+Additions.swift"; sourceTree = "<group>"; };
 		15A33588293CB739007443A4 /* CleanDayLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CleanDayLibrary; path = ../CleanDayLibrary; sourceTree = "<group>"; };
 		15A6302C293F74F900ED938D /* ViewController+Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Define.swift"; sourceTree = "<group>"; };
 		15A756332934B9FD00F1E1A1 /* ViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Delegate.swift"; sourceTree = "<group>"; };
@@ -107,10 +102,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				152CF5EC2918E05100517C02 /* Beltex in Frameworks */,
+				15A0AE9629519FAD0026CCC8 /* CoreLocation.framework in Frameworks */,
+				15A0AE9929519FEB0026CCC8 /* WeatherKit.framework in Frameworks */,
 				15A3358A293CB74E007443A4 /* CleanDayLibrary in Frameworks */,
 				152CF5EE2918E05100517C02 /* SystemKit in Frameworks */,
-				15AFABC62914FFE6000DF6BA /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,15 +199,12 @@
 			isa = PBXGroup;
 			children = (
 				15A304812939CE1700A5BCFA /* PreferenceView.swift */,
-				15A26BA7292FAFA5004D72D8 /* TextContentsCellView.xib */,
-				15A26BA9292FAFF4004D72D8 /* TextContentsCellView.swift */,
-				15A304932939F5E700A5BCFA /* TextContents+Additions.swift */,
+				15A26BA7292FAFA5004D72D8 /* GraphContentsTableCellView.xib */,
+				15A26BA9292FAFF4004D72D8 /* GraphContentsTableCellView.swift */,
+				15A304932939F5E700A5BCFA /* GraphContentsTableCellView+Additions.swift */,
 				15A304912939F4D700A5BCFA /* WeatherStateView.xib */,
 				15F9D2AB292FC00200F205F8 /* WeatherStateView.swift */,
 				15A304832939CE5700A5BCFA /* WeatherStateView+Additions.swift */,
-				15A3048D2939F10B00A5BCFA /* GraphContentsTableCellView.xib */,
-				15A304852939DAAB00A5BCFA /* GraphContentsTableCellView.swift */,
-				15A3048F2939F4B800A5BCFA /* GraphContentsTableCellView+Additions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,9 +212,10 @@
 		15A81448291122C700AB5B03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15A0AE9829519FEB0026CCC8 /* WeatherKit.framework */,
+				15C500A229112EE2009ED8A2 /* CoreLocation.framework */,
 				15A33588293CB739007443A4 /* CleanDayLibrary */,
 				152CF5EA2918E01000517C02 /* Universal-SystemKit */,
-				15C500A229112EE2009ED8A2 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,7 +246,6 @@
 			);
 			name = CleanDay;
 			packageProductDependencies = (
-				152CF5EB2918E05100517C02 /* Beltex */,
 				152CF5ED2918E05100517C02 /* SystemKit */,
 				15A33589293CB74E007443A4 /* CleanDayLibrary */,
 			);
@@ -286,7 +278,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ko,
 			);
 			mainGroup = 151D1CA929100EB7000CB8D7;
 			packageReferences = (
@@ -308,8 +299,7 @@
 			files = (
 				15C5F1C1291A8864000C4B6C /* Configure.plist in Resources */,
 				151D1CBD29100EBA000CB8D7 /* Assets.xcassets in Resources */,
-				15A26BA8292FAFA5004D72D8 /* TextContentsCellView.xib in Resources */,
-				15A3048E2939F10B00A5BCFA /* GraphContentsTableCellView.xib in Resources */,
+				15A26BA8292FAFA5004D72D8 /* GraphContentsTableCellView.xib in Resources */,
 				15A304922939F4D700A5BCFA /* WeatherStateView.xib in Resources */,
 				151D1CC029100EBA000CB8D7 /* Main.storyboard in Resources */,
 			);
@@ -331,10 +321,9 @@
 				151D1CBB29100EB8000CB8D7 /* CleanDay.xcdatamodeld in Sources */,
 				15C5F1C5291A9052000C4B6C /* GeographicTransformModel.swift in Sources */,
 				15F9D2AC292FC00200F205F8 /* WeatherStateView.swift in Sources */,
-				15A26BAA292FAFF4004D72D8 /* TextContentsCellView.swift in Sources */,
-				15A304942939F5E700A5BCFA /* TextContents+Additions.swift in Sources */,
+				15A26BAA292FAFF4004D72D8 /* GraphContentsTableCellView.swift in Sources */,
+				15A304942939F5E700A5BCFA /* GraphContentsTableCellView+Additions.swift in Sources */,
 				15A756342934B9FD00F1E1A1 /* ViewController+Delegate.swift in Sources */,
-				15A304902939F4B800A5BCFA /* GraphContentsTableCellView+Additions.swift in Sources */,
 				15A75670293E1C7500E02163 /* ViewControllerModel+Additions.swift in Sources */,
 				152CF5FB2919072000517C02 /* DustModel.swift in Sources */,
 				152CF5F92919066000517C02 /* BaseViewController.swift in Sources */,
@@ -345,7 +334,6 @@
 				151D1CB629100EB8000CB8D7 /* AppDelegate.swift in Sources */,
 				15A6302D293F74F900ED938D /* ViewController+Define.swift in Sources */,
 				152CF5FE29194DDA00517C02 /* DustStationModel.swift in Sources */,
-				15A304862939DAAB00A5BCFA /* GraphContentsTableCellView.swift in Sources */,
 				15B7F5A2292B826600E3C383 /* ConfigureModel.swift in Sources */,
 				1540D3FB2915639B009D7EA6 /* ProjectCommon.swift in Sources */,
 			);
@@ -609,10 +597,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		152CF5EB2918E05100517C02 /* Beltex */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Beltex;
-		};
 		152CF5ED2918E05100517C02 /* SystemKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SystemKit;

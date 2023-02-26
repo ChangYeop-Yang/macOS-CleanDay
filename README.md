@@ -1,4 +1,4 @@
-# 🌠 macOS-CleanDay
+# 🛠 macOS-CleanDay
 
 오늘도 맑음이 (Clean Day) 애플리케이션은 사용자의 현재 위치 정보를 기반으로 날씨 정보와 미세먼지 정보를 제공하는 애플리케이션 입니다. 
 

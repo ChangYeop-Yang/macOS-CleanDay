@@ -25,7 +25,7 @@
 ※ 개발자 연락처
 - 이메일 : yeop9657@icloud.com
 
-## LICENSE
+## 🗂 LICENSE
 
 ```TEXT
 MIT License
